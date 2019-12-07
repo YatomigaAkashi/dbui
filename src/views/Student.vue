@@ -55,7 +55,7 @@
                 select: '请选择',  // select students by condition
                 input: '',  // search studentd
                 studentDialog: false,  // show addStudent dialog
-                studentDialogData: {}, // init addStudent dialog data
+                studentDialogData: {},  // init addStudent dialog data
                 Clnos: [],  //  get clnos
                 dialogConfirmType: ''  // confirm type
             }
@@ -89,7 +89,13 @@
             },
             // add student
             async addStudent() {
-                this.studentDialogData = {}
+                this.studentDialogData = {
+                    Sno: '',
+                    Sname: '',
+                    Ssex: '',
+                    Sage: null,
+                    Clno: ''
+                }
                 this.dialogConfirmType = 'add'
                 this.showAddStudent()
             },
