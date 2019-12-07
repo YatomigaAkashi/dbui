@@ -68,6 +68,7 @@
             // get students
             async getStudents() {
                 let data = await this.$axios.get('/student/getStudents')
+                console.log(data)
                 if (data.data.code === '001') {
                     data.data.msg.forEach((value, index) => {
                         if (value.Ssex === 'female') {

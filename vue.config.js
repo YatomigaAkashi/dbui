@@ -10,7 +10,7 @@ module.exports = {
         hotOnly: true, //是否开启热更新
         proxy: {
             '/api': {
-                target: 'http://localhost:3000/', //API服务器的地址
+                target: 'api.akashi.com.cn', //API服务器的地址
                 changeOrigin: true,
                 pathRewrite: {
                     '^/api': ''
