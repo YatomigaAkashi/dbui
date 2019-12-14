@@ -16,13 +16,9 @@
               <i class="el-icon-user"/>
               <span slot="title">学生信息</span>
             </el-menu-item>
-            <el-menu-item index='2' route="/index/teacher">
+            <el-menu-item index='2' route="/index/department">
               <i class="el-icon-s-custom"/>
-              <span slot="title">教师信息</span>
-            </el-menu-item>
-            <el-menu-item index='3' route="/index/course">
-              <i class="el-icon-reading"/>
-              <span slot="title">课程信息</span>
+              <span slot="title">系信息</span>
             </el-menu-item>
             <el-menu-item index='4' route="/index/class">
               <i class="el-icon-files"/>

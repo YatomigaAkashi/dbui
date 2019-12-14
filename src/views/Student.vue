@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <div class="header">
             <div style="width: 400px; display: inline-block">
                 <el-input placeholder="请输入搜索条件" v-model="input" class="input-with-select">
@@ -22,14 +22,17 @@
         <el-table :data="showStudents">
             <el-table-column prop="Sno" label="学号" width="180" />
             <el-table-column prop="Sname" label="姓名" width="140" />
-            <el-table-column prop="Ssex" label="性别" width="120" />
-            <el-table-column prop="Sage" label="年龄" width="120" />
-            <el-table-column prop="Clno" label="班级" width="160" />
+            <el-table-column prop="Ssex" label="性别" width="100" />
+            <el-table-column prop="Sage" label="年龄" width="100" />
+            <el-table-column prop="Clno" label="班级" width="140" />
             <el-table-column prop="Dname" label="系别" width="140" />
+            <el-table-column prop="Rno" label="宿舍区" width="130" />
             <el-table-column label="操作" width="240" >
                 <template slot-scope="edit">
                     <el-button size="small" @click="updateStudent(edit.row)">编辑</el-button>
-                    <el-container style="display: inline-block; width: 30px"/>
+                    <el-container style="display: inline-block; width: 10px"/>
+                    <el-button size="small"  @click="query(edit.row)">课程信息</el-button>
+                    <el-container style="display: inline-block; width: 10px"/>
                     <el-button size="small" type="danger" @click="deleteStudent(edit.row)">删除</el-button>
                 </template>
             </el-table-column>
@@ -51,7 +54,8 @@
         data() {
             return {
                 students: [],  // get students
-                showStudents: [],  // show students
+                showStudents: [], // show students
+                showCourses: [],  // sc
                 select: '请选择',  // select students by condition
                 input: '',  // search studentd
                 studentDialog: false,  // show addStudent dialog
@@ -68,7 +72,6 @@
             // get students
             async getStudents() {
                 let data = await this.$axios.get('/student/getStudents')
-                console.log(data)
                 if (data.data.code === '001') {
                     data.data.msg.forEach((value, index) => {
                         if (value.Ssex === 'female') {
@@ -159,6 +162,14 @@
                     message: result.data.msg
                 });
             },
+            query(data) {
+                this.$router.push({
+                    name: 'queryCourse',
+                    query: {
+                        Sno: data.Sno
+                    }
+                })
+            },
             // update show students
             async updateStudentsData() {
                 this.students =  await this.getStudents()
@@ -197,18 +208,6 @@
                     });
                 })
             },
-            // 弹出信息框
-            // showMsg(msg, title) {
-            //     return new Promise( resolve => {
-            //         this.$alert(msg, title, {
-            //             confirmButtonText: '确定',
-            //             callback: () => {
-            //                 resolve(true)
-            //             }
-            //         });
-            //     })
-            // },
-            // 更新students数据
         }
     }
 </script>

@@ -1,21 +1,9 @@
-/*
-  See docs: https://github.com/chimurai/http-proxy-middleware
-
-  Example for multi proxy:
-  module.exports = {
-    '/one': {
-      target: 'http://localhost:3000',
-      pathRewrite: {
-        '^/one': ''
-      }
+module.exports = {
+    '/api': {
+        target: 'localhost:3000',
+        pathRewrite: {
+            '/api': '/api'
+        },
+        changeOrigin: true
     },
-    '/two': {
-      target: 'http://localhost:3001',
-      pathRewrite: {
-        '^/two': ''
-      }
-    }
   }
- */
-
-module.exports = {};

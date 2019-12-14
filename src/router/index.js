@@ -31,20 +31,12 @@ const routes = [
         component: () => import('../views/Student.vue')
       },
       {
-        path: 'teacher',
-        name: 'teacher',
+        path: 'department',
+        name: 'department',
         meta: {
           auth: true,
         },
-        component: () => import('../views/Teacher.vue')
-      },
-      {
-        path: 'course',
-        name: 'course',
-        meta: {
-          auth: true,
-        },
-        component: () => import('../views/Course.vue')
+        component: () => import('../views/Department.vue')
       },
       {
         path: 'class',
@@ -62,6 +54,14 @@ const routes = [
         },
         component: () => import('../views/Sm.vue')
       },
+      {
+        path: 'queryCourse',
+        name: 'queryCourse',
+        meta: {
+          auth: true
+        },
+        component: () => import('../views/student/queryCourse')
+      }
     ]
   },
 ]
@@ -76,7 +76,7 @@ router.beforeEach((to, from, next) => {
       //  成功
       next()
     } else {
-      next({path:'/login'})
+      next({ path: '/login' })
     }
   } else {
     // 没有meta.auth 不用管
