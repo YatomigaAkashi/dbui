@@ -4,4 +4,6 @@
 
 [体验网址](http://dbstudent.akashi.com.cn/?#/index/student)
 
+[后端网址](https://github.com/YatomigaAkashi/student)
+
 注：本项目为小demo，主要测试体验从数据库到前端的流程以及pm2和git的部署
